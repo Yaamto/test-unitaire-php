@@ -1,0 +1,17 @@
+{
+    "name": "bilou/php-unit",
+    "autoload": {
+        "psr-4": {
+            "Bilou\\PhpUnit\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "bilal",
+            "email": "bilou728@hotmail.fr"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^10.2"
+    }
+}
