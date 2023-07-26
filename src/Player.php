@@ -20,13 +20,25 @@ class Player {
         if($number > 2){
             $number = 2;
         }
-        //Vérifie si le joueur ne sort pas de la grille en x
-        if($this->position[0] + $number > 0 && $this->position[0] + $number <= 9)
-        {
-            $this->position[0] += $number;
-        }else {
-            $this->position[0] = $this->position[0];
-        }
+        $number = $this->negativeOrPositiv($number);
+        //Vérifier si le joueurs ne sors pas de la grille en fonction de la direction dans laquel il se trouve, si il ne sors pas alors il faut le faire avancer dans la direction
+       if($this->direction === "left" || $this->direction === "right"){
+           if($this->position[0] + $number > 0 && $this->position[0] + $number <= 9){
+                $this->position[0] += $number;
+           }
+           else {
+            $this->position[0] == $this-> position[0];
+           }
+       } 
+
+       if($this->direction === "bottom" || $this->direction ==="top"){
+            if($this->position[1] + $number > 0 && $this->position[1] + $number <= 9){
+                $this->position[1] += $number;
+            }
+            else {
+                $this->position[1] = $this->position[1]; 
+            }
+       }
     }
     public function changeDirection($direction){
        //Faire en sorte que le joueur change de direction sur 90 degré
@@ -59,5 +71,18 @@ class Player {
 
     public function setPosition($position){
         $this->position = $position;
+    }
+
+    //permet de renvoyer un nombre négatif ou positif en fonction de la direction du joueur (si c'est à gauche c'est négatif)
+    public function negativeOrPositiv($number){
+        if($this->direction === "left"){
+            return -$number;
+        }else if($this->direction === "right"){
+            return $number;
+        }else if($this->direction === "bottom"){
+            return $number;
+        } else if($this->direction === "top"){
+            return  -$number;
+        }
     }
 }

@@ -5,10 +5,9 @@
 -Vérifier s'il y a deux joueurs
 -Vérifier que la grille fasse 10 sur 10
 -Vérifier que l'utilisateur puisse se déplacer
--Vérifier que l'utilisateur fasse une action par tour
--Vérifier que l'utilisateur ne puisse pas faire d'action si ce n'est pas son tour ######
--Vérifier que l'utilisateur puisse se déplacer d'une case ##########
--Vérifier qu'un joueur puisse se déplacer de deux cases ########
+-Vérifier que l'utilisateur ne fasse qu'une action par tour
+-Vérifier que l'utilisateur puisse se déplacer d'une case 
+-Vérifier qu'un joueur puisse se déplacer de deux cases 
 -Vérifier qu'il puisse avancer que de deux cases maximum
 -Vérifier que le joueur ne puisse pas sortir de la grille
 -Vérifier que le joueur puisse changer de direction

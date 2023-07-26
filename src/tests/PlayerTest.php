@@ -37,9 +37,21 @@ class PlayerTest extends TestCase{
         $this->assertGreaterThanOrEqual(0, $player2->getPosition()[1]);
     }
 
+    public function testPlayerCanMoveOneStep(){
+        $player = new Player("bilal", [2,3]);
+        $player->move(1);
+        $this->assertEquals($player->getPosition(), [3,3]);
+    }
+
+    public function testPlayerCanMoveTwoStep(){
+        $player = new Player("Bilal", [2,3]);
+        $player->move(2);
+        $this->assertEquals($player->getPosition(), [4,3]);
+    }
+
     // Fonction permettant de s'assurer que le joueur ne peut pas se déplacer de plus de 2 cases si c'est le cas alors on force
     // le joueur à se déplacer de 2 cases
-    public function testPlayerCanMoveOnlyTwoSteps(){
+    public function testPlayerCantMoveMoreTwoSteps(){
         $player = new Player("bilal", [2,3]);
         $player->move(3);
         $position = $player->getPosition();
@@ -51,5 +63,31 @@ class PlayerTest extends TestCase{
         $player->changeDirection("left");
         $this->assertEquals($player->getDirection(), "top");
     }
+
+    public function testPlayerCantGoOutsideBottom(){
+        $player1 = new Player("bilal", [9,9], "bottom");
+        $player1->move(1);
+        $position1 = $player1->getPosition();
+        $this->assertEquals($position1, [9,9]);
+    }
+    public function testPlayerCantGoOutsideRight(){
+        $player = new Player("basile", [9,9], "right");
+        $player->move(1);
+        $position = $player->getPosition();
+        $this->assertEquals($position, [9,9]);
+    }
+    public function testPlayerCantGoOutsideTop(){
+        $player = new Player("basile", [0,0], "top");
+        $player->move(1);
+        $position = $player->getPosition();
+        $this->assertEquals($position, [0,0]);
+    }
+    public function testPlayerCantGoOutsideLeft(){
+        $player = new Player("basile", [0,0], "left");
+        $player->move(1);
+        $position = $player->getPosition();
+        $this->assertEquals($position, [0,0]);
+    }
+
 }
 ?>

@@ -10,6 +10,7 @@ class GameTest extends TestCase{
         $game->action("move", 1);
         $this->assertNotEquals($game->getCurrentPlayer(), $player);
     }
+
     //Vérifie si un joueur voit un autre joueur sur la ligne ou la column en fonction de sa direction 
     //On compare le status de la partie avec le joueur qui vient de passer son tour
     public function testPlayerCanSeeOtherPlayer(){
