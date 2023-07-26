@@ -2,7 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 require_once("src/Grille.php");
-class TestGrille extends TestCase {
+class GrilleTest extends TestCase {
 
     public function testGrilleSize(){
         $grille = new Grille();

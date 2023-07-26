@@ -4,7 +4,7 @@ require_once("src/Player.php");
 require_once("src/Grille.php");
 require_once("src/Game.php");
 
-class TestPlayer extends TestCase{
+class PlayerTest extends TestCase{
 
     public function testTwoPlayers(){
        $game = new Game();
@@ -19,7 +19,7 @@ class TestPlayer extends TestCase{
 
         $this->assertNotEquals($position, $player->getPosition());
     }
-
+    //Fonction permettant de vérifier que le joueur ne peut sortir de la grille
     public function testPlayerCantGoOut(){
         $player1 = new Player("basile", [9,9]);
         $grid = new Grille();
@@ -36,12 +36,20 @@ class TestPlayer extends TestCase{
         $this->assertGreaterThanOrEqual(0, $player2->getPosition()[0]);
         $this->assertGreaterThanOrEqual(0, $player2->getPosition()[1]);
     }
-    public function testPlayerCanMoveOnlyTwoSteps(){
 
-        $player = new Player("basile", [2,3]);
-        $position = $player->getPosition();
+    // Fonction permettant de s'assurer que le joueur ne peut pas se déplacer de plus de 2 cases si c'est le cas alors on force
+    // le joueur à se déplacer de 2 cases
+    public function testPlayerCanMoveOnlyTwoSteps(){
+        $player = new Player("bilal", [2,3]);
         $player->move(3);
-        $this->assertEquals($position, $player->getPosition());
+        $position = $player->getPosition();
+        $this->assertEquals($position[0], 4);
+    }
+
+    public function testPlayerCanChangeDirection(){
+        $player = new Player("bilal", [2,3]);
+        $player->changeDirection("left");
+        $this->assertEquals($player->getDirection(), "top");
     }
 }
 ?>
