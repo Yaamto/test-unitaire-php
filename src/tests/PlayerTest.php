@@ -64,6 +64,23 @@ class PlayerTest extends TestCase{
         $this->assertEquals($player->getDirection(), "top");
     }
 
+    public function testNumberIsNegativOrPositiv(){
+        $player = new Player("Test Player", [0, 0], "left");
+        $this->assertEquals(-2, $player->negativeOrPositiv(2));
+
+        //le joueur est maintenant orienté vers le haut
+        $player->changeDirection("right");
+        $this->assertEquals(-3, $player->negativeOrPositiv(3));
+        
+        //le joueur est maintenant orienté vers la droite
+        $player->changeDirection("right");
+        $this->assertEquals(4, $player->negativeOrPositiv(4));
+
+        //le joueur est maintenant orienté vers le bas
+        $player->changeDirection("right");
+        $this->assertEquals(1, $player->negativeOrPositiv(1));
+    }
+
     public function testPlayerCantGoOutsideBottom(){
         $player1 = new Player("bilal", [9,9], "bottom");
         $player1->move(1);

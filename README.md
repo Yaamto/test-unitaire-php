@@ -15,7 +15,7 @@
 -Vérifier qu'un joueur ne puisse pas voir un autre
 -Vérifier qu'un joueur est sur la même case #######
 -Vérifier qu'un joueur gagne lorsqu'il est sur la même case qu'un autre joueur #######
-
+-Vérifier que l'on me donne 
 
 ## Découverte
 
