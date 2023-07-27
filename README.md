@@ -9,13 +9,12 @@
 -Vérifier que l'utilisateur puisse se déplacer d'une case 
 -Vérifier qu'un joueur puisse se déplacer de deux cases 
 -Vérifier qu'il puisse avancer que de deux cases maximum
--Vérifier que le joueur ne puisse pas sortir de la grille
+-Vérifier que le joueur ne puisse pas sortir de la grille (droite, gauche, bas, haut)
 -Vérifier que le joueur puisse changer de direction
 -Vérifier qu'un joueur puisse voir un autre
 -Vérifier qu'un joueur ne puisse pas voir un autre
 -Vérifier qu'un joueur est sur la même case #######
 -Vérifier qu'un joueur gagne lorsqu'il est sur la même case qu'un autre joueur #######
-Modifier la fonction move pour qu'il se déplace en fonction de la direction ########
 
 
 ## Découverte

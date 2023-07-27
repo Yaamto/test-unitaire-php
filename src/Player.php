@@ -20,6 +20,7 @@ class Player {
         if($number > 2){
             $number = 2;
         }
+        //change le number en positif ou négatif en fonction de la position left/top ou right/bottom
         $number = $this->negativeOrPositiv($number);
         //Vérifier si le joueurs ne sors pas de la grille en fonction de la direction dans laquel il se trouve, si il ne sors pas alors il faut le faire avancer dans la direction
        if($this->direction === "left" || $this->direction === "right"){
@@ -40,6 +41,7 @@ class Player {
             }
        }
     }
+
     public function changeDirection($direction){
        //Faire en sorte que le joueur change de direction sur 90 degré
          if($direction == "left"){
@@ -65,6 +67,7 @@ class Player {
             }
         }
     }
+    
     public function getDirection(){
         return $this->direction;
     }
@@ -75,14 +78,10 @@ class Player {
 
     //permet de renvoyer un nombre négatif ou positif en fonction de la direction du joueur (si c'est à gauche c'est négatif)
     public function negativeOrPositiv($number){
-        if($this->direction === "left"){
+        if($this->direction === "left" || $this->direction === "top"){
             return -$number;
-        }else if($this->direction === "right"){
+        }else if($this->direction === "right" || $this->direction === "bottom"){
             return $number;
-        }else if($this->direction === "bottom"){
-            return $number;
-        } else if($this->direction === "top"){
-            return  -$number;
         }
     }
 }
