@@ -26,4 +26,61 @@ class GameTest extends TestCase{
         $game->action("changeDirection", null, "left");
         $this->assertEquals($game->getStatus(), array());
     }
+
+    public function testPlayersOnSameCase() {
+        $game = new Game();
+
+        $player1 = $game->getJoueurs()[0];
+        $player2 = $game->getJoueurs()[1];
+
+        $player1->setPosition([3, 3]);
+        $player2->setPosition([3, 3]);
+
+        $this->assertTrue($game->checkIfPlayersOnSameCase());
+    }
+
+    public function testPlayersNotOnSameCase() {
+        $game = new Game();
+
+        $player1 = $game->getJoueurs()[0];
+        $player2 = $game->getJoueurs()[1];
+
+        $player1->setPosition([1, 1]);
+        $player2->setPosition([3, 3]);
+
+        $this->assertFalse($game->checkIfPlayersOnSameCase());
+    }
+
+    public function testCurrentPlayerWins() {
+        $game = new Game();
+        $player1 = $game->getJoueurs()[0];
+        $player2 = $game->getJoueurs()[1];
+
+        // Positionner les joueurs sur la même case pour simuler une situation de victoire
+        $player1->setPosition([2, 3]);
+        $player2->setPosition([3, 3]);
+
+        $this->assertNull($game->getWinner());
+        // Faire une action (dans cet exemple, un simple déplacement)
+        $game->action("move", 1);
+
+        // Vérifier que le currentPlayer est déclaré comme gagnant après l'action
+        $this->assertSame($player1, $game->getWinner());
+    }
+
+    public function testNoWinnerAfterAction() {
+        $game = new Game();
+        $player1 = $game->getJoueurs()[0];
+        $player2 = $game->getJoueurs()[1];
+
+        $player1->setPosition([2, 3]);
+        $player2->setPosition([4, 5]);
+
+        $this->assertNull($game->getWinner());
+
+        $game->action("move", 1);
+
+        $this->assertNull($game->getWinner());
+    }
+
 }

@@ -4,6 +4,7 @@ use PHPUnit\Framework\TestCase;
 require_once("src/Grille.php");
 class GrilleTest extends TestCase {
 
+
     public function testGrilleSize(){
         $grille = new Grille();
         $nbColonnes = count($grille->getGrille()[0]);

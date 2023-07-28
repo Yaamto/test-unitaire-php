@@ -6,6 +6,18 @@ require_once("src/Game.php");
 
 class PlayerTest extends TestCase{
 
+    public function testPlayerConstructorInitializesCorrectly() {
+        $name = "Bilal";
+        $position = [2, 3];
+        $direction = "left";
+
+        $player = new Player($name, $position, $direction);
+
+        $this->assertEquals($name, $player->getName());
+        $this->assertEquals($position, $player->getPosition());
+        $this->assertEquals($direction, $player->getDirection());
+    }
+
     public function testTwoPlayers(){
        $game = new Game();
        $nbJoueur = count($game->getJoueurs());
@@ -58,10 +70,20 @@ class PlayerTest extends TestCase{
         $this->assertEquals($position[0], 4);
     }
 
+    
     public function testPlayerCanChangeDirection(){
         $player = new Player("bilal", [2,3]);
-        $player->changeDirection("left");
+        $player->changeDirection("right");
+        $this->assertEquals($player->getDirection(), "bottom");
+
+        $player->changeDirection("right");
+        $this->assertEquals($player->getDirection(), "left");
+
+        $player->changeDirection("right");
         $this->assertEquals($player->getDirection(), "top");
+
+        $player->changeDirection("right");
+        $this->assertEquals($player->getDirection(), "right");
     }
 
     public function testNumberIsNegativOrPositiv(){

@@ -7,6 +7,7 @@ class Game {
     protected array $joueurs = array();
     protected Player $currentPlayer;
     protected array $status = array();
+    protected ?Player $winner = null;
 
     public function __construct(){
         $this->grille = new Grille();
@@ -18,13 +19,7 @@ class Game {
         $this->currentPlayer = $player1;
     }
 
-   public function getJoueurs(){
-        return $this->joueurs;
-    }
-
-    public function getCurrentPlayer(){
-        return $this->currentPlayer;
-    }
+  
     public function action($action, $number = null, $direction = null){
         if($action == "move"){
             $this->currentPlayer->move($number);
@@ -32,8 +27,16 @@ class Game {
         if($action == "changeDirection"){
             $this->currentPlayer->changeDirection($direction);
         }
-        $this->checkIfPlayerCanSee();
-        $this->changePlayer();
+        
+        $isWinner = $this->checkIfPlayersOnSameCase();
+
+        if($isWinner === true){
+            $this->setWinner($this->currentPlayer);
+        }else {
+            $this->checkIfPlayerCanSee();
+            $this->changePlayer();
+        }
+        
     }   
 
     public function changePlayer(){
@@ -43,6 +46,7 @@ class Game {
             $this->currentPlayer = $this->joueurs[0];
         }
     }
+
     public function checkIfPlayerCanSee(){
         $currentPlayer = $this->getCurrentPlayer();
         $otherPlayer = $this->getOtherPlayer();
@@ -73,9 +77,17 @@ class Game {
         }
     }
 
-    public function getStatus(){
-        return $this->status;
+    public function checkIfPlayersOnSameCase() {
+        $currentPlayer= $this->getCurrentPlayer();
+        $otherPlayer = $this->getOtherPlayer();
+        
+        $currentPlayerPosition = $currentPlayer->getPosition();
+        $otherPlayerPosition = $otherPlayer->getPosition();
+    
+        return $currentPlayerPosition[0] === $otherPlayerPosition[0] && $currentPlayerPosition[1] === $otherPlayerPosition[1];
     }
+
+   
     //Permet de calculer le nombre de cases qui séparent les deux joueurs
     public function diffCases($position, $otherPosition, $index){
         if($position[$index] < $otherPosition[$index]){
@@ -91,5 +103,24 @@ class Game {
         }else{
             return $this->joueurs[0];
         }
+    }
+
+    public function getWinner(){
+        return $this->winner;
+    }
+    public function setWinner($winner){
+        $this->winner = $winner;
+    }
+
+    public function getJoueurs(){
+        return $this->joueurs;
+    }
+
+    public function getCurrentPlayer(){
+        return $this->currentPlayer;
+    }
+
+    public function getStatus(){
+        return $this->status;
     }
 }

@@ -14,6 +14,9 @@ class Player {
     public function getPosition(){
         return $this->position;
     }
+    public function getName(){
+        return $this->name;
+    }
     
     public function move($number){
         //force l'utilisateur à bouger que de deux cases si supérieur à 2

@@ -13,10 +13,8 @@
 -Vérifier que le joueur puisse changer de direction
 -Vérifier qu'un joueur puisse voir un autre
 -Vérifier qu'un joueur ne puisse pas voir un autre
--Vérifier qu'un joueur est sur la même case #######
--Vérifier qu'un joueur gagne lorsqu'il est sur la même case qu'un autre joueur #######
--Vérifier que l'on me donne 
-
+-Vérifier qu'un joueur est sur la même case 
+-Vérifier qu'un joueur gagne lorsqu'il est sur la même case qu'un autre joueur 
 ## Découverte
 
 Faire l'inverse et vérifier si un joueur ne puisse pas en voire un autre m'a fais découvrir un bug dans mon fonction et j'ai pu modifier ma fonction afin qu'elle fasse exactement ce qu'elle doit faire.
