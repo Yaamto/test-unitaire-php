@@ -4,6 +4,10 @@
 
 <?php
 
+/**
+ *  @author Bilal Bouterbiat
+ */
+
 class Grille {
     protected array $grille = array();
     protected int $nbLignes = 10;

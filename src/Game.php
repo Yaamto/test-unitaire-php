@@ -2,6 +2,11 @@
 <?php
 require_once("Grille.php");
 require_once("Player.php");
+
+/**
+ *  @author Bilal Bouterbiat
+ */
+
 class Game {
     protected Grille $grille;
     protected array $joueurs = array();

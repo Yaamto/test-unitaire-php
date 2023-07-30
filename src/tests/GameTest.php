@@ -2,6 +2,11 @@
 
 use PHPUnit\Framework\TestCase;
 require("src/Game.php");
+
+/**
+ *  @author Bilal Bouterbiat
+ */
+
 class GameTest extends TestCase{
     //Vérifie si le joueur change bien de joueur après avoir joué une seule fois
     public function testPlayerPlayOneTimePerRound(){

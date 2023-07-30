@@ -1,5 +1,10 @@
 <?php
 require_once("Grille.php");
+
+/**
+ *  @author Bilal Bouterbiat
+ */
+
 class Player {
     protected string $name;
     protected array $position;

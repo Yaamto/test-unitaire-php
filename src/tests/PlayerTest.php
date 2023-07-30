@@ -4,6 +4,10 @@ require_once("src/Player.php");
 require_once("src/Grille.php");
 require_once("src/Game.php");
 
+/**
+ *  @author Bilal Bouterbiat
+ */
+
 class PlayerTest extends TestCase{
 
     public function testPlayerConstructorInitializesCorrectly() {
